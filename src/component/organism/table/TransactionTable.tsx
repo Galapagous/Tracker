@@ -1,3 +1,4 @@
+import { FaNairaSign } from "react-icons/fa6";
 import type { Transaction } from "../../../types/types";
 
 interface TransactionTableProps {
@@ -40,7 +41,9 @@ const TransactionTable: React.FC<TransactionTableProps> = ({
                   <td className="p-2">{t.date}</td>
                   <td className="p-2 capitalize">{t.type}</td>
                   <td className="p-2">{t.category}</td>
-                  <td className="p-2">${t.amount.toFixed(2)}</td>
+                  <td className="p-2 flex items-center justify-center">
+                    <FaNairaSign className="text-sm" /> {t.amount.toFixed(2)}
+                  </td>
                   <td className="p-2">{t.notes || "-"}</td>
                 </tr>
               ))}

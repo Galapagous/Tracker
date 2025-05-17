@@ -1,54 +1,93 @@
-# React + TypeScript + Vite
+Personal Finance Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web-based application for tracking personal finances, built with React, TypeScript, Tailwind CSS, and React Router. The app allows users to record income and expenses, categorize transactions, filter and sort data, visualize income vs. expenses with charts, and export transactions to CSV. Data is persisted using browser local storage, and the UI is fully responsive for optimal use across devices.
 
-Currently, two official plugins are available:
+Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Dashboard: View total income, expenses, balance, and a bar chart comparing income vs. expenses.
 
-## Expanding the ESLint configuration
+Transaction Management:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Add transactions with amount, date, category, and optional notes.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Filter transactions by type (income/expense) and category.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Sort transactions by date or amount (ascending/descending).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Export filtered transactions to CSV.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Category Management: Create custom income and expense categories.
+
+Data Persistence: Transactions and categories are saved in browser local storage.
+
+Responsive Design: Mobile-friendly UI with Tailwind CSS.
+
+Chart Visualization: Bar chart powered by Chart.js to visualize income vs. expenses.
+
+Navigation: Multi-page app with React Router for seamless page transitions.
+
+Tech Stack
+
+Frontend: React, TypeScript
+
+Styling: Tailwind CSS
+
+Routing: React Router DOM
+
+Charts: Chart.js, react-chartjs-2
+
+Data Storage: Browser local storage
+
+Build Tool: Vite
+
+Prerequisites
+
+Node.js (v20 or higher)
+
+npm or yarn
+
+A modern web browser
+
+Setup Instructions
+
+Clone the Repository (or create a new project):
+
+git clone https://github.com/Galapagous/Tracker.git
+cd tracker
+
+Alternatively, create a new Vite project:
+
+npx create-vite personal-finance-tracker --template react-ts
+cd personal-finance-tracker
+
+Install Dependencies:
+
+npm install
+npm install react-router-dom chart.js react-chartjs-2 @types/react-router-dom
+
+Configure Tailwind CSS: Create a tailwind.config.js file in the project root:
+
+/** @type {import('tailwindcss').Config} \*/
+module.exports = {
+content: ['./src/**/\*.{js,jsx,ts,tsx}'],
+theme: {
+extend: {},
+},
+plugins: [],
+};
+
+Ensure Tailwind is included in src/index.css or via CDN in index.html.
+
+Add Project Files:
+
+Replace the src/ directory with the provided source files (App.tsx, pages, components, types.ts, index.tsx, index.css).
+
+Ensure index.html is in the project root.
+
+Run the Application:
+
+npm run dev
+
+Open http://localhost:5173 (or the port shown in the terminal) in your browser.
+
+Pr
